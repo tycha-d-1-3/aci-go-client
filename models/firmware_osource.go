@@ -62,7 +62,7 @@ func OSourceFromContainerList(cont *container.Container, index int) *OSource {
                         DistinguishedName: G(OSourceCont, "dn"),
                         Description:       G(OSourceCont, "descr"),
                         Status:            G(OSourceCont, "status"),
-                        ClassName:         FvtenantClassName,
+                        ClassName:         FirmwareOSourceName,
                         Rn:                G(OSourceCont, "rn"),
                 },
 
