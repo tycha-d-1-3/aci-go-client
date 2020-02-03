@@ -1,4 +1,4 @@
-module github.com/ciscoecosystem/aci-go-client
+module github.com/tycha-d-1-3/aci-go-client
 
 go 1.13
 
