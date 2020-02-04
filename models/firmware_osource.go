@@ -8,7 +8,7 @@ import (
         "github.com/ciscoecosystem/aci-go-client/container"
 )
 
-const FirmwareOSourceName = "firmwareOSource"
+const FirmwareOSourceClassName = "firmwareOSource"
 
 type OSource struct {
         BaseAttributes
@@ -31,7 +31,7 @@ func NewOSource(firmwareOSourceRn, parentDn, description string, firmwareOSource
                         DistinguishedName: dn,
                         Description:       description,
                         Status:            "created, modified",
-                        ClassName:         FirmwareOSourceName,
+                        ClassName:         FirmwareOSourceClassName,
                         Rn:                firmwareOSourceRn,
                 },
                 OSourceAttributes: firmwareOSourceAttr,
@@ -56,13 +56,13 @@ func (firmwareOSource *OSource) ToMap() (map[string]string, error) {
 
 func OSourceFromContainerList(cont *container.Container, index int) *OSource {
 
-        OSourceCont := cont.S("imdata").Index(index).S(FirmwareOSourceName, "attributes")
+        OSourceCont := cont.S("imdata").Index(index).S(FirmwareOSourceClassName, "attributes")
         return &OSource{
                 BaseAttributes{
                         DistinguishedName: G(OSourceCont, "dn"),
                         Description:       G(OSourceCont, "descr"),
                         Status:            G(OSourceCont, "status"),
-                        ClassName:         FirmwareOSourceName,
+                        ClassName:         FirmwareOSourceClassName,
                         Rn:                G(OSourceCont, "rn"),
                 },
 

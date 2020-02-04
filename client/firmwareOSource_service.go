@@ -2,7 +2,7 @@ package client
   
 import (
         "fmt"
-        "github.com/ciscoecosystem/aci-go-client/models"
+        "github.com/tycha-d-1-3/aci-go-client/models"
 )
 
 func (sm *ServiceManager) CreateOSource(name string, description string, firmwareOSourceAttr models.OSourceAttributes) (*models.OSource, error) {
@@ -25,7 +25,7 @@ func (sm *ServiceManager) ReadOSource(name string) (*models.OSource, error) {
 
 func (sm *ServiceManager) DeleteOSource(name string ) error {
         dn := fmt.Sprintf("uni/fabric/fwrepop/osrc-%s", name)
-        return sm.DeleteByDn(dn, models.FirmwareOSourceName)
+        return sm.DeleteByDn(dn, models.FirmwareOSourceClassName)
 }
 
 func (sm *ServiceManager) UpdateOSource(name string, description string, firmwareOSourceAttr models.OSourceAttributes) (*models.OSource, error) {
