@@ -26,7 +26,7 @@ func NewCtrlrFwP(firmwareCtrlrFwPRn, parentDn, description string, firmwareCtrlr
                 BaseAttributes: BaseAttributes{
                         DistinguishedName: dn,
                         Description:       description,
-                        Status:            "created, modified",
+                        Status:            "modified",
                         ClassName:         FirmwareCtrlrFwPClassName,
                         Rn:                firmwareCtrlrFwPRn,
                 },

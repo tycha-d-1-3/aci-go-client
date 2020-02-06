@@ -2,7 +2,7 @@ package client
 
 import (
         "fmt"
-        "github.com/tycha-d-1-3/aci-go-client/models"
+        "github.com/ciscoecosystem/aci-go-client/models"
 )
 
 func (sm *ServiceManager) CreateCtrlrFwP(description string, firmwareCtrlrFwPAttr models.CtrlrFwPAttributes) (*models.CtrlrFwP, error) {
