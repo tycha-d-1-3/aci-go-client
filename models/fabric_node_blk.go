@@ -30,7 +30,7 @@ func NewNodeBlk(fabricNodeBlkRn, parentDn, description string, fabricNodeBlkattr
         BaseAttributes: BaseAttributes{
             DistinguishedName: dn,
             Description:       description,
-            Status:            "created, modified",
+            Status:            "",
             ClassName:         FabricNodeBlkClassName,
             Rn:                fabricNodeBlkRn,
         },

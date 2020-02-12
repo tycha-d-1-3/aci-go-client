@@ -1,8 +1,9 @@
 package client
-  
+
 import (
         "fmt"
         "github.com/ciscoecosystem/aci-go-client/models"
+	    "github.com/ciscoecosystem/aci-go-client/container"
 )
 
 func (sm *ServiceManager) CreateMaintGrp(name string, description string, maintMaintGrpAttr models.MaintGrpAttributes) (*models.MaintGrp, error) {
@@ -45,4 +46,35 @@ func (sm *ServiceManager) ListMaintGrp() ([]*models.MaintGrp, error) {
         list := models.MaintGrpListFromContainer(cont)
         return list, err
 }
+
+func (sm *ServiceManager) CreateRelationvzRsMgrppFromMaintGrp(parentDn, tnMaintMaintPName string) error {
+	dn := fmt.Sprintf("%s/rsmgrpp", parentDn)
+	containerJSON := []byte(fmt.Sprintf(`{
+		"%s": {
+			"attributes": {
+				"dn": "%s","tnMaintMaintPName": "%s"
+								
+			}
+		}
+	}`, "maintRsMgrpp", dn, tnMaintMaintPName))
+
+	jsonPayload, err := container.ParseJSON(containerJSON)
+	if err != nil {
+		return err
+	}
+
+	req, err := sm.client.MakeRestRequest("POST", fmt.Sprintf("%s.json", sm.MOURL), jsonPayload, true)
+	if err != nil {
+		return err
+	}
+
+	cont, _, err := sm.client.Do(req)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("%+v", cont)
+
+	return nil
+}
+
 

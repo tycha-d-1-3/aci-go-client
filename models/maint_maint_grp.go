@@ -30,7 +30,7 @@ func NewMaintGrp(maintMaintGrpRn, parentDn, description string, maintMaintGrpatt
         BaseAttributes: BaseAttributes{
             DistinguishedName: dn,
             Description:       description,
-            Status:            "created, modified",
+            Status:            "",
             ClassName:         MaintMaintGrpClassName,
             Rn:                maintMaintGrpRn,
         },
