@@ -37,7 +37,7 @@ func NewCtrlrMaintP(maintCtrlrMaintPRn, parentDn, description string, maintCtrlr
                 BaseAttributes: BaseAttributes{
                         DistinguishedName: dn,
                         Description:       description,
-                        Status:            "created, modified",
+                        Status:            "",
                         ClassName:         MaintCtrlrMaintPName,
                         Rn:                maintCtrlrMaintPRn,
                 },

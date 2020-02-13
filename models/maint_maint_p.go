@@ -41,7 +41,7 @@ func NewMaintP(maintMaintPRn, parentDn, description string, maintMaintPattr Main
         BaseAttributes: BaseAttributes{
             DistinguishedName: dn,
             Description:       description,
-            Status:            "created, modified",
+            Status:            "",
             ClassName:         MaintMaintPClassName,
             Rn:                maintMaintPRn,
         },
