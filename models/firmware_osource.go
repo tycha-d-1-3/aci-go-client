@@ -45,7 +45,7 @@ func (firmwareOSource *OSource) ToMap() (map[string]string, error) {
         }
 
     A(firmwareOSourceMap, "name", firmwareOSource.Name)
-    A(firmwareOSourceMap, "urle", firmwareOSource.Url)
+    A(firmwareOSourceMap, "url", firmwareOSource.Url)
     A(firmwareOSourceMap, "proto", firmwareOSource.Proto)
     A(firmwareOSourceMap, "user", firmwareOSource.User)
     A(firmwareOSourceMap, "authType", firmwareOSource.AuthType)
