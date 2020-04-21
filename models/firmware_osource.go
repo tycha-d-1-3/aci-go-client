@@ -51,6 +51,7 @@ func (firmwareOSource *OSource) ToMap() (map[string]string, error) {
     A(firmwareOSourceMap, "user", firmwareOSource.User)
     A(firmwareOSourceMap, "authType", firmwareOSource.AuthType)
     A(firmwareOSourceMap, "authPass", firmwareOSource.AuthPass)
+    A(firmwareOSourceMap, "password", firmwareOSource.Password)
 
     return firmwareOSourceMap, err
 }
@@ -75,6 +76,7 @@ func OSourceFromContainerList(cont *container.Container, index int) *OSource {
         User : G(OSourceCont, "user"),
         AuthType : G(OSourceCont, "authType"),
         AuthPass : G(OSourceCont, "AuthPass"),
+        Password : G(OSourceCont, "password"),
         },
 
         }
