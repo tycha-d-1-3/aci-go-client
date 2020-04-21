@@ -22,6 +22,7 @@ type OSourceAttributes struct {
     User       string `json:",omitempty"`
     AuthType       string `json:",omitempty"`
     AuthPass       string `json:",omitempty"`
+    Password       string `json:",omitempty"`
 }
 
 func NewOSource(firmwareOSourceRn, parentDn, description string, firmwareOSourceAttr OSourceAttributes) *OSource {
