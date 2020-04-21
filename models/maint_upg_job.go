@@ -16,8 +16,11 @@ type UpgJob struct {
 
 type UpgJobAttributes struct {
     CreationDate string `json:",omitempty"`
-    DesiredVersion       string `json:",omitempty"`
-    EndDate          string `json:",omitempty"`
+    DesiredVersion string `json:",omitempty"`
+    DnldPercent string `json:",omitempty"`
+    DnldStatus string `json:",omitempty"`
+    DnldStatusStr string `json:",omitempty"`
+    EndDate string `json:",omitempty"`
     FwGrp string `json:",omitempty"`
     FwPolName string `json:",omitempty"`
     GrpPriKey string `json:",omitempty"`
@@ -65,6 +68,9 @@ func (maintUpgJob *UpgJob) ToMap() (map[string]string, error) {
 
     A(maintUpgJobMap, "creationDate",maintUpgJob.CreationDate)
     A(maintUpgJobMap, "desiredVersion",maintUpgJob.DesiredVersion)
+    A(maintUpgJobMap, "dnldPercent",maintUpgJob.DnldPercent)
+    A(maintUpgJobMap, "dnldStatus",maintUpgJob.DnldStatus)
+    A(maintUpgJobMap, "dnldStatusStr",maintUpgJob.DnldStatusStr)
     A(maintUpgJobMap, "endDate",maintUpgJob.EndDate)
     A(maintUpgJobMap, "fwGrp",maintUpgJob.FwGrp)
     A(maintUpgJobMap, "fwPolName",maintUpgJob.FwPolName)
@@ -104,6 +110,9 @@ func UpgJobFromContainerList(cont *container.Container, index int) *UpgJob {
 
         CreationDate : G(UpgJobCont,"creationDate"),
         DesiredVersion : G(UpgJobCont,"desiredVersion"),
+        DnldPercent : G(UpgJobCont,"dnldPercent"),
+        DnldStatus : G(UpgJobCont,"dnldStatus"),
+        DnldStatusStr : G(UpgJobCont,"dnldStatusStr"),
         EndDate : G(UpgJobCont,"endDate"),
         FwGrp : G(UpgJobCont,"fwGrp"),
         FwPolName : G(UpgJobCont,"fwPolName"),
