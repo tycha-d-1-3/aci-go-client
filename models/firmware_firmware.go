@@ -24,7 +24,6 @@ type FirmwareAttributes struct {
     Size            string `json:",omitempty"`
     Size64          string `json:",omitempty"`
     Checksum        string `json:",omitempty"`
-    Description     string `json:",omitempty"`
     Latest          string `json:",omitempty"`
     DeleteIt        string `json:",omitempty"`
     DownloadDate    string `json:",omitempty"`
@@ -64,7 +63,6 @@ func (firmwareFirmware *Firmware) ToMap() (map[string]string, error) {
     A(firmwareFirmwareMap, "size", firmwareFirmware.Size)
     A(firmwareFirmwareMap, "size64", firmwareFirmware.Size64)
     A(firmwareFirmwareMap, "checksum", firmwareFirmware.Checksum)
-    A(firmwareFirmwareMap, "description", firmwareFirmware.Description)
     A(firmwareFirmwareMap, "latest", firmwareFirmware.Latest)
     A(firmwareFirmwareMap, "deleteIt", firmwareFirmware.DeleteIt)
     A(firmwareFirmwareMap, "downloadDate", firmwareFirmware.DownloadDate)
@@ -99,7 +97,6 @@ func FirmwareFromContainerList(cont *container.Container, index int) *Firmware {
                     Size            : G(FirmwareCont, "size"),
                     Size64          : G(FirmwareCont, "size64"),
                     Checksum        : G(FirmwareCont, "checksum"),
-                    Description     : G(FirmwareCont, "description"),
                     Latest          : G(FirmwareCont, "latest"),
                     DeleteIt        : G(FirmwareCont, "deleteIt"),
                     DownloadDate    : G(FirmwareCont, "downloadDate"),
