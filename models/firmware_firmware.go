@@ -1,6 +1,5 @@
 package models
 
-
 import (
         "fmt"
         "strconv"
@@ -16,6 +15,7 @@ type Firmware struct {
 
 type FirmwareAttributes struct {
     Name            string `json:",omitempty"`
+    Annotation      string `json:",omitempty"`
     FullVersion     string `json:",omitempty"`
     Version         string `json:",omitempty"`
     MinorVersion    string `json:",omitempty"`
@@ -54,22 +54,23 @@ func (firmwareFirmware *Firmware) ToMap() (map[string]string, error) {
                 return nil, err
         }
 
-    A(firmwareFirmwareMap, "name", firmwareFirmware.Name)
-    A(firmwareFirmwareMap, "fullVersion", firmwareFirmware.FullVersion)
-    A(firmwareFirmwareMap, "version", firmwareFirmware.Version)
-    A(firmwareFirmwareMap, "minorVersion", firmwareFirmware.MinorVersion)
-    A(firmwareFirmwareMap, "isoname", firmwareFirmware.Isoname)
-    A(firmwareFirmwareMap, "type", firmwareFirmware.Type)
-    A(firmwareFirmwareMap, "size", firmwareFirmware.Size)
-    A(firmwareFirmwareMap, "size64", firmwareFirmware.Size64)
-    A(firmwareFirmwareMap, "checksum", firmwareFirmware.Checksum)
-    A(firmwareFirmwareMap, "latest", firmwareFirmware.Latest)
-    A(firmwareFirmwareMap, "deleteIt", firmwareFirmware.DeleteIt)
-    A(firmwareFirmwareMap, "downloadDate", firmwareFirmware.DownloadDate)
-    A(firmwareFirmwareMap, "releaseDate", firmwareFirmware.ReleaseDate)
-    A(firmwareFirmwareMap, "url", firmwareFirmware.Url)
-    A(firmwareFirmwareMap, "iUrl", firmwareFirmware.IUrl)
-    A(firmwareFirmwareMap, "dnldStatus", firmwareFirmware.DnldStatus)
+    A(firmwareFirmwareMap, "name",            firmwareFirmware.Name)
+    A(firmwareFirmwareMap, "annotation",      firmwareFirmware.Annotation)
+    A(firmwareFirmwareMap, "fullVersion",     firmwareFirmware.FullVersion)
+    A(firmwareFirmwareMap, "version",         firmwareFirmware.Version)
+    A(firmwareFirmwareMap, "minorVersion",    firmwareFirmware.MinorVersion)
+    A(firmwareFirmwareMap, "isoname",         firmwareFirmware.Isoname)
+    A(firmwareFirmwareMap, "type",            firmwareFirmware.Type)
+    A(firmwareFirmwareMap, "size",            firmwareFirmware.Size)
+    A(firmwareFirmwareMap, "size64",          firmwareFirmware.Size64)
+    A(firmwareFirmwareMap, "checksum",        firmwareFirmware.Checksum)
+    A(firmwareFirmwareMap, "latest",          firmwareFirmware.Latest)
+    A(firmwareFirmwareMap, "deleteIt",        firmwareFirmware.DeleteIt)
+    A(firmwareFirmwareMap, "downloadDate",    firmwareFirmware.DownloadDate)
+    A(firmwareFirmwareMap, "releaseDate",     firmwareFirmware.ReleaseDate)
+    A(firmwareFirmwareMap, "url",             firmwareFirmware.Url)
+    A(firmwareFirmwareMap, "iUrl",            firmwareFirmware.IUrl)
+    A(firmwareFirmwareMap, "dnldStatus",      firmwareFirmware.DnldStatus)
     A(firmwareFirmwareMap, "autoloadCatalog", firmwareFirmware.AutoloadCatalog)
 
     return firmwareFirmwareMap, err
@@ -89,6 +90,7 @@ func FirmwareFromContainerList(cont *container.Container, index int) *Firmware {
 
                 FirmwareAttributes{
                     Name            : G(FirmwareCont, "name"),
+                    Annotation      : G(FirmwareCont, "annotation"),
                     FullVersion     : G(FirmwareCont, "fullVersion"),
                     Version         : G(FirmwareCont, "version"),
                     MinorVersion    : G(FirmwareCont, "minorVersion"),

@@ -1,5 +1,5 @@
 package client
-  
+
 import (
         "fmt"
         "github.com/ciscoecosystem/aci-go-client/models"

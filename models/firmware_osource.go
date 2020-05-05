@@ -16,10 +16,11 @@ type OSource struct {
 }
 
 type OSourceAttributes struct {
-    Name       string `json:",omitempty"`
-    Url       string `json:",omitempty"`
-    Proto       string `json:",omitempty"`
-    User       string `json:",omitempty"`
+    Name           string `json:",omitempty"`
+    Annotation     string `json:",omitempty"`
+    Url            string `json:",omitempty"`
+    Proto          string `json:",omitempty"`
+    User           string `json:",omitempty"`
     AuthType       string `json:",omitempty"`
     AuthPass       string `json:",omitempty"`
     Password       string `json:",omitempty"`
@@ -45,13 +46,14 @@ func (firmwareOSource *OSource) ToMap() (map[string]string, error) {
                 return nil, err
         }
 
-    A(firmwareOSourceMap, "name", firmwareOSource.Name)
-    A(firmwareOSourceMap, "url", firmwareOSource.Url)
-    A(firmwareOSourceMap, "proto", firmwareOSource.Proto)
-    A(firmwareOSourceMap, "user", firmwareOSource.User)
-    A(firmwareOSourceMap, "authType", firmwareOSource.AuthType)
-    A(firmwareOSourceMap, "authPass", firmwareOSource.AuthPass)
-    A(firmwareOSourceMap, "password", firmwareOSource.Password)
+    A(firmwareOSourceMap, "name",       firmwareOSource.Name)
+    A(firmwareOSourceMap, "annotation", firmwareOSource.Annotation)
+    A(firmwareOSourceMap, "url",        firmwareOSource.Url)
+    A(firmwareOSourceMap, "proto",      firmwareOSource.Proto)
+    A(firmwareOSourceMap, "user",       firmwareOSource.User)
+    A(firmwareOSourceMap, "authType",   firmwareOSource.AuthType)
+    A(firmwareOSourceMap, "authPass",   firmwareOSource.AuthPass)
+    A(firmwareOSourceMap, "password",   firmwareOSource.Password)
 
     return firmwareOSourceMap, err
 }
@@ -69,15 +71,15 @@ func OSourceFromContainerList(cont *container.Container, index int) *OSource {
                 },
 
                 OSourceAttributes{
-        Name : G(OSourceCont, "name"),
-        Url : G(OSourceCont, "url"),
-
-        Proto : G(OSourceCont, "proto"),
-        User : G(OSourceCont, "user"),
-        AuthType : G(OSourceCont, "authType"),
-        AuthPass : G(OSourceCont, "AuthPass"),
-        Password : G(OSourceCont, "password"),
-        },
+                        Name:       G(OSourceCont, "name"),
+                        Annotation: G(OSourceCont, "annotation"),
+                        Url:        G(OSourceCont, "url"),
+                        Proto:      G(OSourceCont, "proto"),
+                        User:       G(OSourceCont, "user"),
+                        AuthType:   G(OSourceCont, "authType"),
+                        AuthPass:   G(OSourceCont, "AuthPass"),
+                        Password:   G(OSourceCont, "password"),
+                },
 
         }
 }
