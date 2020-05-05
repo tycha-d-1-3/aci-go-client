@@ -16,6 +16,7 @@ type CtrlrFwP struct {
 
 type CtrlrFwPAttributes struct {
     Name            string `json:",omitempty"`
+    Annotation      string `json:",omitempty"`
     IgnoreCompat    string `json:",omitempty"`
     Version         string `json:",omitempty"`
 }
@@ -41,6 +42,7 @@ func (firmwareCtrlrFwP *CtrlrFwP) ToMap() (map[string]string, error) {
         }
 
     A(firmwareCtrlrFwPMap, "name", firmwareCtrlrFwP.Name)
+    A(firmwareCtrlrFwPMap, "annotation", firmwareCtrlrFwP.Annotation)
     A(firmwareCtrlrFwPMap, "ignoreCompat", firmwareCtrlrFwP.IgnoreCompat)
     A(firmwareCtrlrFwPMap, "version", firmwareCtrlrFwP.Version)
 
@@ -60,10 +62,11 @@ func CtrlrFwPFromContainerList(cont *container.Container, index int) *CtrlrFwP {
                 },
 
                 CtrlrFwPAttributes{
-        Name : G(CtrlrFwPCont, "name"),
-        IgnoreCompat : G(CtrlrFwPCont, "ignoreCompat"),
-        Version : G(CtrlrFwPCont, "version"),
-        },
+                        Name:         G(CtrlrFwPCont, "name"),
+                        Annotation:   G(CtrlrFwPCont, "annotation"),
+                        IgnoreCompat: G(CtrlrFwPCont, "ignoreCompat"),
+                        Version:      G(CtrlrFwPCont, "version"),
+                },
 
         }
 }

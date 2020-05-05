@@ -17,6 +17,7 @@ type CtrlrMaintP struct {
 
 type CtrlrMaintPAttributes struct {
     Name string `json:",omitempty"`
+    Annotation string `json:",omitempty"`
     AdminSt string `json:",omitempty"`
     AdminState string `json:",omitempty"`
     Graceful string `json:",omitempty"`
@@ -52,6 +53,7 @@ func (maintCtrlrMaintP *CtrlrMaintP) ToMap() (map[string]string, error) {
         }
 
     A(maintCtrlrMaintPMap, "name", maintCtrlrMaintP.Name)
+    A(maintCtrlrMaintPMap, "annotation", maintCtrlrMaintP.Annotation)
     A(maintCtrlrMaintPMap, "adminSt", maintCtrlrMaintP.AdminSt)
     A(maintCtrlrMaintPMap, "adminState", maintCtrlrMaintP.AdminState)
     A(maintCtrlrMaintPMap, "graceful", maintCtrlrMaintP.Graceful)
@@ -82,6 +84,7 @@ func CtrlrMaintPFromContainerList(cont *container.Container, index int) *CtrlrMa
 
                 CtrlrMaintPAttributes{
                     Name : G(CtrlrMaintPCont, "name"),
+                    Annotation : G(CtrlrMaintPCont, "annotation"),
                     AdminSt : G(CtrlrMaintPCont, "adminSt"),
                     AdminState : G(CtrlrMaintPCont, "adminState"),
                     Graceful : G(CtrlrMaintPCont, "graceful"),
