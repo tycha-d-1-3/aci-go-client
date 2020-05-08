@@ -196,6 +196,7 @@ func SystemFromContainerList(cont *container.Container, index int) *System {
             Serial : G(SystemCont,"serial"),
             ServerType : G(SystemCont,"serverType"),
             SiteId : G(SystemCont,"siteId"),
+            State : G(SystemCont,"state"),
             SystemUpTime : G(SystemCont,"systemUpTime"),
             TepPool : G(SystemCont,"tepPool"),
             UnicastXrEpLearnDisable : G(SystemCont,"unicastXrEpLearnDisable"),
