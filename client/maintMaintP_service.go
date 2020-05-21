@@ -52,8 +52,8 @@ func (sm *ServiceManager) CreateRelationmaintRsPolSchedulerFromMaintP(parentDn, 
 	containerJSON := []byte(fmt.Sprintf(`{
 		"%s": {
 			"attributes": {
-				"dn": "%s","tnTrigSchedPName": "%s"
-								
+				"dn": "%s",
+				"tnTrigSchedPName": "%s"				
 			}
 		}
 	}`, "maintRsPolScheduler", dn, tnTrigSchedPName))
